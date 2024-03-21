@@ -1,4 +1,4 @@
-package basic;
+package parsing;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -8,7 +8,6 @@ import org.jsoup.select.Elements;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.net.MalformedURLException;
 import java.net.URL;
 
 import java.io.IOException;
