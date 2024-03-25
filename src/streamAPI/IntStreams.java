@@ -65,7 +65,5 @@ public class IntStreams {
         for (int a : arr) result += a - '0'; // char->int
         return result;
     }
-
-
 }
 
