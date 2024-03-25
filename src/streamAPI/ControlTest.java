@@ -35,14 +35,14 @@ public class ControlTest {
                 .findFirst().get();
 
         //Выбрать элемент по шаблону regex, чтобы строка начиналась на 'b'
-        List<String> selected = collection.stream().filter(s -> Pattern.compile("[b]+\\d").matcher(s).matches()).collect(Collectors.toList());
+        List<String> selected = collection.stream().filter(s -> Pattern.compile("[b].*").matcher(s).matches()).collect(Collectors.toList());
 
         Assertions.assertAll("executable instance check",
                 () -> Assertions.assertEquals(first, "a1"),
                 () -> Assertions.assertEquals(last, "b1"),
                 () -> Assertions.assertEquals(count, collection.size()),
                 () -> Assertions.assertEquals(find, "a3"),
-                () -> Assertions.assertEquals(selected, "[b1]")
+                () -> Assertions.assertArrayEquals(selected.toArray(), new String[]{"b1"})
         );
     }
 
