@@ -5,10 +5,25 @@ import java.lang.reflect.Method;
 
 public class InvokeMethods {
     public static void main(String[] args) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+
         Method sum = Calc.class.getMethod("sum", int.class, double.class);
         Calc calc = new Calc();
         double res = (double) sum.invoke(calc, 1, 2);
         System.out.println(res);
+
+        Method mult = Calc.class.getMethod("mult", float.class, long.class);
+        double res2 = (double) mult.invoke(null, 2, 3);
+        System.out.println(res2);
+
+        Method and = Calc.class.getDeclaredMethod("and", boolean.class, boolean.class);
+        and.setAccessible(true); //???
+        boolean res3 = (boolean) and.invoke(calc, true, false);
+        System.out.println(res3);
+
+        Method max = Calc.class.getDeclaredMethod("max", int.class, int.class);
+        //max.setAccessible(true); NO NEED FOR THE PROTECTED ONE
+        int res4 = (int) max.invoke(calc, 1, 2);
+        System.out.println(res4);
     }
 }
 
